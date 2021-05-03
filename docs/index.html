@@ -5,17 +5,8 @@
     <style>
         .accordion {
             width: 100%;
-            margin: 80px auto;
-            display: flex;
-        }
 
-        .accordion-item {
-            display: block;
-            position: relative;
-            margin: 40px 0;
-            border-left: 34px solid #369;
         }
-
         .accordion .active .accordion-item--content {
             display: block;
         }
@@ -23,37 +14,64 @@
         .accordion .accordion-item--content {
             display: none;
         }
-
         .accordion-item--header {
-            padding: .1rem;
+            padding: .01rem;
             cursor: pointer;
+            background:  #369;
         }
 
         .accordion-item--header h3 {
-            font: bold 12px Sans-Serif;
-            letter-spacing: 2px;
+            font: bold .8rem Sans-Serif;
+            letter-spacing: .1rem;
             text-transform: uppercase;
             color: #fff;
-            padding: 5px 10px;
-            margin: 0 0 10px 0;
-            line-height: 24px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            /* Rotate from top left corner (not default) */
-            transform-origin: 0 0;
-            transform: rotate(90deg);
-            white-space: nowrap;
+            /*padding: .3rem .7rem;*/
+            /*margin: 0 0 1rem 0;*/
+            /*line-height: 1.5rem;*/
+            /*position: absolute;*/
+            /*transform-origin: 0 0;*/
+            /*transform: rotate(90deg);*/
+            /*white-space: nowrap;*/
             display: flex;
             flex-direction: row;
+
         }
+        @media (min-width: 40rem) {
+            .accordion {
+                display: flex;
+            }
+            .accordion-item {
+                display: block;
+                position: relative;
+                border-left: 2rem solid;
+                border-color: #369;
+            }
+            .accordion-item--header {
+                background: none;
+            }
+            .accordion-item--header h3 {
+                font: bold .8rem Sans-Serif;
+                letter-spacing: .1rem;
+                text-transform: uppercase;
+                color: #fff;
+                padding: .3rem .7rem;
+                margin: 0 0 1rem 0;
+                line-height: 1.5rem;
+                position: absolute;
+                transform-origin: 0 0;
+                transform: rotate(90deg);
+                white-space: nowrap;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
 
         .accordion-item-header-icon {
             margin-right: 1rem;
             width: 1.5rem;
-
+            height: 1.5rem;
         }
-
         .accordion .accordion-item-header-icon {
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 
@@ -67,9 +85,14 @@
             opacity: .8;
 
         }
+
+        .accordion-item--content {
+            padding: .5rem;
+        }
     </style>
 </head>
 <body>
+<p>What</p>
 <div class="accordion">
     <section class="accordion-item active">
         <header class="accordion-item--header">
@@ -174,6 +197,7 @@
         </section>
     </section>
 </div>
+<p>when</p>
 <script>
 
     const inActivateAll = () => {

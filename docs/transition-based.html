@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/transition-based.css">
+</head>
+<body>
+<h2>Accordions</h2>
+<div class="accordion">
+    <div class="accordion-item active">
+        <button class="accordion-button">Section 1</button>
+        <section class="accordion-panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat.</p>
+        </section>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">Section 2</button>
+        <section class="accordion-panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat.</p>
+        </section>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">Section 3</button>
+        <section class="accordion-panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat.</p>
+        </section>
+    </div>
+</div>
+
+
+<script>
+
+    const inActivateAll = (current) => {
+        const accordionNode = current.parentNode.parentNode;
+        accordionNode.querySelectorAll(":scope > .accordion-fixed-item").forEach(item => {
+            item.classList.remove("active");
+        });
+    };
+
+    const accordionButtons = document.getElementsByClassName("accordion-fixed-item--button");
+    Array.from(accordionButtons).forEach(accordionButton => {
+        accordionButton.addEventListener("click", evt => {
+            inActivateAll(evt.currentTarget);
+            evt.currentTarget.parentNode.classList.toggle("active");
+        });
+    });
+</script>
+
+</body>
+</html>

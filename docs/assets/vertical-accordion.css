@@ -1,0 +1,80 @@
+.accordion {
+    width: 100%;
+}
+
+.accordion .active .accordion-item--content {
+    display: block;
+}
+
+.accordion .accordion-item--content {
+    display: none;
+}
+
+.accordion-item--button {
+    padding: .03rem;
+    cursor: pointer;
+    background: #369;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.accordion-item--button h3 {
+    font: bold .8rem Sans-Serif;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: .3rem;
+}
+
+.accordion-item--button h3:before {
+    margin-right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
+}
+
+.active .accordion-item--button h3:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg>');
+}
+
+.accordion-item--button:hover {
+    opacity: .8;
+}
+
+.accordion-item--content {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+@media (min-width: 40rem) {
+    .accordion {
+        display: flex;
+    }
+
+    .accordion-item {
+        display: block;
+        position: relative;
+        border-left: 2rem solid;
+        border-color: #369;
+    }
+
+    .accordion-item--button {
+        background: none;
+    }
+
+    .accordion-item--button h3 {
+        position: absolute;
+        transform-origin: 0 0;
+        transform: rotate(90deg);
+        white-space: nowrap;
+    }
+
+    .active .accordion-item--button h3:before {
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>');
+    }
+}

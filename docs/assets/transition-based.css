@@ -1,0 +1,87 @@
+.accordion-fixed {
+    width: 100%;
+}
+
+.accordion-fixed-item--button {
+    background-color: #369;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    padding: .3rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.4s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.accordion-fixed-item--button:hover {
+    opacity: .8;
+}
+
+.accordion-fixed-item--button:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
+}
+
+.active .accordion-fixed-item--button {
+    cursor: default;
+}
+
+.active .accordion-fixed-item--button:hover {
+    opacity: 1;
+}
+
+.active .accordion-fixed-item--button:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
+}
+
+.accordion-panel {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+
+}
+
+.active .accordion-panel {
+    max-height: 20rem;
+    transition: max-height 0.4s;
+}
+
+@media (min-width: 40rem) {
+    .accordion-fixed {
+        display: flex;
+    }
+
+    .accordion-fixed-item {
+        position: relative;
+        border-left: 2rem solid;
+        border-color: #369;
+    }
+
+    .accordion-fixed-item--button {
+        padding: .3rem .7rem;
+        margin: 0 0 1rem 0;
+        line-height: 1.5rem;
+        position: absolute;
+        transform-origin: 0 0;
+        transform: rotate(90deg);
+        white-space: nowrap;
+    }
+
+    /*.accordion-panel {*/
+    /*    max-width: 0;*/
+    /*    overflow-x: hidden;*/
+
+    /*}*/
+
+    /*.active .accordion-panel {*/
+    /*    max-width: 100%;*/
+    /*    transition: max-width 0.4s;*/
+    /*}*/
+}

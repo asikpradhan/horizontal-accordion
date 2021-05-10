@@ -1,0 +1,162 @@
+@media (min-width: 40rem) {
+    body {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        margin-right: auto;
+        margin-left: auto;
+        width: 60rem;
+        background: #eee;
+    }
+}
+
+.accordion-fixed {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background: white;
+}
+
+.accordion-fixed p {
+    font-weight: 300;
+}
+
+.active .accordion-fixed-item--content {
+    max-height: 22rem;
+
+}
+
+.accordion-fixed-item--content {
+    max-height: 0;
+    transition: max-height .3s;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.accordion-fixed .maroon {
+    border-color: #6b0052;
+}
+
+.accordion-fixed .purple {
+    border-color: #261759;
+}
+
+.accordion-fixed .green {
+    border-color: #acd643;
+}
+
+.accordion-fixed .blue {
+    border-color: #5fc9cb;
+}
+
+.accordion-fixed .orange {
+    border-color: #d64025;
+}
+
+.accordion-fixed .button--maroon {
+    background-color: #6b0052;
+}
+
+.accordion-fixed .button--purple {
+    background-color: #261759;
+}
+
+.accordion-fixed .button--green {
+    background-color: #acd643;
+}
+
+.accordion-fixed .button--blue {
+    background-color: #5fc9cb;
+}
+
+.accordion-fixed .button--orange {
+    background-color: #d64025;
+}
+
+.accordion-fixed-item--button {
+    padding: .01rem;
+    cursor: pointer;
+    background: #369;
+    width: 100%;
+    border: none;
+    outline: none;
+
+}
+
+.accordion-fixed-item--button h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    /*letter-spacing: .1rem;*/
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: .7rem;
+}
+
+.accordion-fixed-item--button h3:after {
+
+    width: 2rem;
+    height: 2rem;
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
+}
+
+.active .accordion-fixed-item--button h3:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg>');
+}
+
+.accordion-fixed-item--button:hover {
+    opacity: .8;
+}
+
+@media (min-width: 40rem) {
+    .accordion-fixed {
+        display: flex;
+    }
+
+    .accordion-fixed-item {
+        display: block;
+        position: relative;
+        border-left: 3rem solid;
+        border-color: #369;
+        height: 22rem;
+    }
+
+    .accordion-fixed-item--content {
+        max-height: 18rem;
+        overflow-y: scroll;
+        padding: 0;
+        max-width: 0;
+        transition: max-width .3s;
+    }
+
+    .active .accordion-fixed-item--content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 40rem;
+    }
+
+    .accordion-fixed-item--button {
+        background: none !important;
+
+    }
+
+    .accordion-fixed-item--button h3 {
+        position: absolute;
+        transform-origin: 0 0;
+        transform: rotate(90deg);
+        white-space: nowrap;
+        width: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .active .accordion-fixed-item--button h3:after {
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>');
+    }
+
+}

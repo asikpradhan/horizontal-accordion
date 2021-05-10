@@ -20,8 +20,8 @@
 }
 
 .active .accordion-fixed-item--content {
-    max-height: 22rem;
-
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 .accordion-fixed-item--content {
@@ -134,6 +134,7 @@
     }
 
     .active .accordion-fixed-item--content {
+        max-height: 18rem;
         padding-left: 1rem;
         padding-right: 1rem;
         max-width: 40rem;

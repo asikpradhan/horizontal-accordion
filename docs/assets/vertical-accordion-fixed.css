@@ -82,7 +82,7 @@
 
 }
 
-.accordion-fixed-item--button h3 {
+.accordion-fixed-item--button span {
     font-style: normal;
     font-weight: 400;
     font-size: 1.1rem;
@@ -95,7 +95,7 @@
     padding: .7rem;
 }
 
-.accordion-fixed-item--button h3:after {
+.accordion-fixed-item--button span:after {
 
     width: 2rem;
     height: 2rem;
@@ -103,11 +103,11 @@
 
 }
 
-.active .accordion-fixed-item--button h3:after {
+.active .accordion-fixed-item--button span:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 }
 
-.accordion-fixed-item--button:hover h3:after, .accordion-fixed-item--button:focus h3:after {
+.accordion-fixed-item--button:hover span:after, .accordion-fixed-item--button:focus span:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 }
 
@@ -148,7 +148,7 @@
 
     }
 
-    .accordion-fixed-item--button h3 {
+    .accordion-fixed-item--button span {
         position: absolute;
         transform-origin: 0 0;
         transform: rotate(90deg);
@@ -159,15 +159,15 @@
         justify-content: space-between;
     }
 
-    .accordion-fixed-item--button h3:after {
+    .accordion-fixed-item--button span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>');
     }
 
-    .active .accordion-fixed-item--button h3:after {
+    .active .accordion-fixed-item--button span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>');
     }
 
-    .accordion-fixed-item--button:hover h3:after, .accordion-fixed-item--button:focus h3:after {
+    .accordion-fixed-item--button:hover span:after, .accordion-fixed-item--button:focus span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>');
     }
 }

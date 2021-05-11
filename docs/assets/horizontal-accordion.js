@@ -1,20 +1,26 @@
+/**
+ * @author Asik <asikpradhan@gmail.com>
+ *
+ */
+
+
 const inactivate = (node) => {
     node.classList.remove("active");
-    node.querySelectorAll(":scope > .accordion-fixed-item--content").forEach(item => {
+    node.querySelectorAll(":scope > .horizontal-accordion-fold--content").forEach(item => {
         item.setAttribute("aria-expanded", false);
         item.removeAttribute("aria-disabled");
     });
 };
 const activate = (node) => {
     node.classList.add("active");
-    node.querySelectorAll(":scope > .accordion-fixed-item--content").forEach(item => {
+    node.querySelectorAll(":scope > .horizontal-accordion-fold--content").forEach(item => {
         item.setAttribute("aria-expanded", true);
         item.setAttribute("aria-disabled", true);
 
     });
 };
 
-const accordions = document.getElementsByClassName("accordion-fixed");
+const accordions = document.getElementsByClassName("horizontal-accordion");
 
 Array.from(accordions).forEach(accordion => {
     Array.from(accordion.children).forEach((child, index) => {
@@ -24,12 +30,12 @@ Array.from(accordions).forEach(accordion => {
             activate(child);
         }
     });
-    const triggers = Array.prototype.slice.call(accordion.querySelectorAll('.accordion-fixed-item--button'));
+    const triggers = Array.prototype.slice.call(accordion.querySelectorAll('.horizontal-accordion-fold--button'));
     accordion.addEventListener('keydown', (event) => {
         const target = event.target;
         const key = event.which.toString();
         const ctrlModifier = (event.ctrlKey && key.match(/33|34/));
-        if (target.classList.contains('accordion-fixed-item--button')) {
+        if (target.classList.contains('horizontal-accordion-fold--button')) {
 
             if (key.match(/38|40/) || ctrlModifier) {
                 const index = triggers.indexOf(target);
@@ -66,12 +72,12 @@ Array.from(accordions).forEach(accordion => {
 });
 const inActivateAll = (current) => {
     const accordionNode = current.parentNode.parentNode;
-    accordionNode.querySelectorAll(":scope > .accordion-fixed-item").forEach(item => {
+    accordionNode.querySelectorAll(":scope > .horizontal-accordion-fold").forEach(item => {
         inactivate(item);
     });
 };
 
-const accordionButtons = document.getElementsByClassName("accordion-fixed-item--button");
+const accordionButtons = document.getElementsByClassName("horizontal-accordion-fold--button");
 Array.from(accordionButtons).forEach(accordionButton => {
     accordionButton.addEventListener("click", evt => {
         inActivateAll(evt.currentTarget);

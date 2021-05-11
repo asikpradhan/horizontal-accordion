@@ -9,22 +9,22 @@
     }
 }
 
-.accordion-fixed {
+.horizontal-accordion {
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     background: white;
 }
 
-.accordion-fixed p {
+.horizontal-accordion p {
     font-weight: 300;
 }
 
-.active .accordion-fixed-item--content {
+.active .horizontal-accordion-fold--content {
     max-height: 100vh;
     overflow-y: scroll;
 }
 
-.accordion-fixed-item--content {
+.horizontal-accordion-fold--content {
     max-height: 0;
     transition: max-height .3s;
     overflow: hidden;
@@ -32,47 +32,47 @@
     padding-right: 1rem;
 }
 
-.accordion-fixed .maroon {
+.horizontal-accordion .maroon {
     border-color: #6b0052;
 }
 
-.accordion-fixed .purple {
+.horizontal-accordion .purple {
     border-color: #261759;
 }
 
-.accordion-fixed .green {
+.horizontal-accordion .green {
     border-color: #acd643;
 }
 
-.accordion-fixed .blue {
+.horizontal-accordion .blue {
     border-color: #5fc9cb;
 }
 
-.accordion-fixed .orange {
+.horizontal-accordion .orange {
     border-color: #d64025;
 }
 
-.accordion-fixed .button--maroon {
+.horizontal-accordion .button--maroon {
     background-color: #6b0052;
 }
 
-.accordion-fixed .button--purple {
+.horizontal-accordion .button--purple {
     background-color: #261759;
 }
 
-.accordion-fixed .button--green {
+.horizontal-accordion .button--green {
     background-color: #acd643;
 }
 
-.accordion-fixed .button--blue {
+.horizontal-accordion .button--blue {
     background-color: #5fc9cb;
 }
 
-.accordion-fixed .button--orange {
+.horizontal-accordion .button--orange {
     background-color: #d64025;
 }
 
-.accordion-fixed-item--button {
+.horizontal-accordion-fold--button {
     padding: .01rem;
     cursor: pointer;
     background: #369;
@@ -82,7 +82,7 @@
 
 }
 
-.accordion-fixed-item--button span {
+.horizontal-accordion-fold--button span {
     font-style: normal;
     font-weight: 400;
     font-size: 1.1rem;
@@ -95,7 +95,7 @@
     padding: .7rem;
 }
 
-.accordion-fixed-item--button span:after {
+.horizontal-accordion-fold--button span:after {
 
     width: 2rem;
     height: 2rem;
@@ -103,24 +103,24 @@
 
 }
 
-.active .accordion-fixed-item--button span:after {
+.active .horizontal-accordion-fold--button span:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 }
 
-.accordion-fixed-item--button:hover span:after, .accordion-fixed-item--button:focus span:after {
+.horizontal-accordion-fold--button:hover span:after, .horizontal-accordion-fold--button:focus span:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 }
 
-.accordion-fixed-item--button:hover, .accordion-fixed-item--button:focus {
+.horizontal-accordion-fold--button:hover, .horizontal-accordion-fold--button:focus {
     opacity: .8;
 }
 
 @media (min-width: 40rem) {
-    .accordion-fixed {
+    .horizontal-accordion {
         display: flex;
     }
 
-    .accordion-fixed-item {
+    .horizontal-accordion-fold {
         display: block;
         position: relative;
         border-left: 3rem solid;
@@ -128,7 +128,7 @@
         height: 22rem;
     }
 
-    .accordion-fixed-item--content {
+    .horizontal-accordion-fold--content {
         max-height: 18rem;
         overflow-y: scroll;
         padding: 0;
@@ -136,19 +136,19 @@
         transition: max-width .3s;
     }
 
-    .active .accordion-fixed-item--content {
+    .active .horizontal-accordion-fold--content {
         max-height: 18rem;
         padding-left: 1rem;
         padding-right: 1rem;
         max-width: 40rem;
     }
 
-    .accordion-fixed-item--button {
+    .horizontal-accordion-fold--button {
         background: none !important;
 
     }
 
-    .accordion-fixed-item--button span {
+    .horizontal-accordion-fold--button span {
         position: absolute;
         transform-origin: 0 0;
         transform: rotate(90deg);
@@ -159,15 +159,15 @@
         justify-content: space-between;
     }
 
-    .accordion-fixed-item--button span:after {
+    .horizontal-accordion-fold--button span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>');
     }
 
-    .active .accordion-fixed-item--button span:after {
+    .active .horizontal-accordion-fold--button span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>');
     }
 
-    .accordion-fixed-item--button:hover span:after, .accordion-fixed-item--button:focus span:after {
+    .horizontal-accordion-fold--button:hover span:after, .horizontal-accordion-fold--button:focus span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>');
     }
 }

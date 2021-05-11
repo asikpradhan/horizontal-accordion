@@ -1,1 +1,1 @@
-# vertical-accordion
+# horizontal-accordion

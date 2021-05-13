@@ -1,4 +1,3 @@
-
 .horizontal-accordion {
     width: 100%;
     background: white;
@@ -119,7 +118,7 @@
         position: relative;
         border-left: 3rem solid;
         border-color: #369;
-        height: 22rem;
+        height: 20rem;
     }
 
     .horizontal-accordion-fold--content {
@@ -131,7 +130,7 @@
     }
 
     .active .horizontal-accordion-fold--content {
-        max-height: 20rem;
+        max-height: 18rem;
         padding: 1rem;
         max-width: 50rem;
     }
@@ -146,7 +145,7 @@
         transform-origin: 0 0;
         transform: rotate(90deg);
         white-space: nowrap;
-        width: 21rem;
+        width: 19rem;
         display: flex;
         align-items: center;
         justify-content: space-between;

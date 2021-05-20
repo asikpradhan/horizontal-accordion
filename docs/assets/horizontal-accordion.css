@@ -24,19 +24,19 @@
 }
 
 .horizontal-accordion .maroon {
-    border-color: #6b0052;
+    border-color: #990000;
 }
 
 .horizontal-accordion .purple {
-    border-color: #261759;
+    border-color: #6b0052;
 }
 
 .horizontal-accordion .green {
-    border-color: #acd643;
+    border-color: #007A7C;
 }
 
 .horizontal-accordion .blue {
-    border-color: #5fc9cb;
+    border-color: #242866;
 }
 
 .horizontal-accordion .orange {
@@ -44,19 +44,19 @@
 }
 
 .horizontal-accordion .button--maroon {
-    background-color: #6b0052;
+    background-color: #990000;
 }
 
 .horizontal-accordion .button--purple {
-    background-color: #261759;
+    background-color: #6b0052;
 }
 
 .horizontal-accordion .button--green {
-    background-color: #acd643;
+    background-color: #007A7C;
 }
 
 .horizontal-accordion .button--blue {
-    background-color: #5fc9cb;
+    background-color: #242866;
 }
 
 .horizontal-accordion .button--orange {
@@ -66,7 +66,7 @@
 .horizontal-accordion-fold--button {
     padding: .01rem;
     cursor: pointer;
-    background: #369;
+    background: #990000;
     width: 100%;
     border: none;
     outline: none;

@@ -16,6 +16,7 @@
     padding-right: 1rem;
     font-size: 1rem;
 }
+
 .active .horizontal-accordion-fold--content {
     max-height: 100vh;
     overflow-y: scroll;
@@ -130,7 +131,6 @@
     }
 
     .active .horizontal-accordion-fold--content {
-        max-height: 18rem;
         padding: 1rem;
         max-width: 50rem;
     }
@@ -161,5 +161,17 @@
 
     .horizontal-accordion-fold--button:hover span:after, .horizontal-accordion-fold--button:focus span:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>');
+    }
+
+    .horizontal-accordion-tall .horizontal-accordion-fold {
+        height: 56rem;
+    }
+
+    .horizontal-accordion-tall .horizontal-accordion-fold--content {
+        max-height: 54rem;
+    }
+
+    .horizontal-accordion-tall .horizontal-accordion-fold--button span {
+        width: 55rem;
     }
 }

@@ -1,0 +1,789 @@
+##import('site://IU-FRAME-WEBS.common/velocity/1.x/Page/Banner')
+## ***************************************************************************************************************
+
+## SLIDER 50/50 BANNER
+#macro(TextImageSplitSliderBanner)
+<script src="/_assets/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+<script src="/_assets/js/jssor.slider.main.js" type="text/javascript"></script>
+
+
+    #set($slides = [])
+    ## assign the variable
+    #set($slides = $_XPathTool.selectNodes($banner, "half-half-slider"))
+<div id="jssor_1" class="jssor-bg">
+    <!-- Loading Screen -->
+    ##<div data-u="loading" class="jssorl-009-spin">
+    ##<img class="jssor-img" src="/_assets/image/spin.svg" />
+    ##</div>
+    <div class="jssor-slides" data-u="slides">
+        #if ($slides.size() > 0)
+                #foreach($slide in $slides)
+            #ImageSlideshowSlide()
+        #end
+            #end
+    </div>
+    <!-- Arrow Navigator -->
+    <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2"
+         data-scale="0.75" data-scale-left="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+            <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
+            <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
+        </svg>
+    </div>
+    <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2"
+         data-scale="0.75" data-scale-right="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+            <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
+            <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
+        </svg>
+    </div>
+</div>
+<script type="text/javascript">jssor_1_slider_init();</script>
+<!-- #endregion Jssor Slider End -->
+#end
+
+#macro(ImageSlideshowSlide)
+
+    #set($image = "/")
+    #set($subhead = "")
+    #set($header = "")
+    #set($class = "")
+
+    ## assign variables
+    #set($image = $_XPathTool.selectSingleNode($slide, "h-image/path").value)
+    #set($tabletImage = $_XPathTool.selectSingleNode($slide, "h-tablet-image/path").value)
+    #set($mobileImage = $_XPathTool.selectSingleNode($slide, "h-mobile-image/path").value)
+    #set($alt = $_XPathTool.selectSingleNode($slide, "h-image/summary").value)
+
+    ## header and subheader
+    #set($header = $_XPathTool.selectSingleNode($slide, "h-header").value)
+    #set($subhead = $_XPathTool.selectSingleNode($slide, "h-subhead").value)
+
+    ## internal link or external URL
+    #set($internal = $_XPathTool.selectSingleNode($slide, "h-link-internal/path").value)
+    #set($external = $_XPathTool.selectSingleNode($slide, "h-link-external").value)
+
+    #if($internal!="/")
+        #set($link = $internal)
+    #elseif($external!="")
+        #set($link = $external)
+    #elseif($asset && $asset!="/")
+        #set($link = $asset)
+    #end
+    #set($link = $link.trim())
+
+    #set($linkLabel = $_XPathTool.selectSingleNode($slide, "h-link-label").value)
+    #set($linkLabel = $linkLabel.trim())
+    #set($contentPosition = $_XPathTool.selectSingleNode($slide, "h-content-position").value)
+
+    #if($contentPosition=="Right")
+        #set($contentPosition = "content-right ")
+        #set ($bannerPosition = "banner-right")
+    #else
+        #set($contentPosition = "content-left ")
+        #set ($bannerPosition = "banner-left")
+    #end
+
+    ## Background color
+    #set($sectionBackgroundColor = "")
+    #set($sectionBackgroundColor = $_XPathTool.selectSingleNode($slide, "h-bgcolor").value)
+
+    #if($sectionBackgroundColor == "None")
+        #set($sectionBackgroundColor = "bg-none")
+    #elseif($sectionBackgroundColor == "Crimson")
+        #set($sectionBackgroundColor = "bg-crimson")
+    #elseif($sectionBackgroundColor == "Light Gray")
+        #set($sectionBackgroundColor = "bg-gray")
+    #elseif($sectionBackgroundColor == "Secondary")
+        #set($sectionBackgroundColor = "bg-secondary")
+    #elseif($sectionBackgroundColor == "Midnight")
+        #set($sectionBackgroundColor = "bg-midnight")
+    #else
+        #set($sectionBackgroundColor = "bg-none")
+    #end
+    #set($sectionBackgroundColor = $sectionBackgroundColor + " ")
+
+    ## Set section background based on section background color and background image
+    #if($sectionBackgroundColor.indexOf('bg-none') == -1 and $sectionBackgroundColor.indexOf('bg-gray') == -1)
+        #set($sectionBackground = $sectionBackgroundColor + "bg-dark ")
+    #else
+        #set($sectionBackground = $sectionBackgroundColor)
+    #end
+
+    #set($sectionClasses = "")
+    #set($sectionClasses = $!contentPosition + $!sectionBackground + "text-image section banner")
+
+    #if(($header!="" or $subhead!="") and $image!="/" and $tabletImage!="/")
+        #set($image = "[system-asset]" + $image + "[/system-asset]")
+    <div class="$!sectionClasses" id="banner">
+        <div class="slider-sc" data-ratio="2x1">##always show desktop image
+            <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+        </div>
+        <div class="row $!bannerPosition">
+            <div class="banner--content text-image--content">
+                #if($header!="")
+                    <h2 class="title">#cleanup($header)</h2>
+                #end
+                #if($subhead!="")
+                    <p class="teaser">#cleanup($subhead)</p>
+                #end
+                #if($link!="" and $linkLabel!="")
+                    <a href="$!link" class="button">#cleanup($linkLabel)</a>
+                #end
+            </div>
+        </div>
+    </div>
+    #else
+        #if(($header!="" or $subhead!="") and $image=="/" and $tabletImage!="/")
+            #error("Please provide a desktop image for the text + image (50/50) banner.")
+        #elseif(($header!="" or $subhead!="") and $image!="/" and $tabletImage=="/")
+            #error("Please provide a tablet image for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image!="/" and $tabletImage!="/")
+            #error("Please enter a header or a subhead for the text + image (50/50) banner.")
+        #elseif(($header=="" or $subhead=="") and $image=="/" and $tabletImage=="/")
+            #error("Please provide a desktop image and a tablet image for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image=="/" and $tabletImage!="/")
+            #error(
+                "Please provide a desktop image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image!="/" and $tabletImage=="/")
+            #error(
+                "Please provide a tablet image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #else
+            #error(
+                "Please provide a desktop image and a tablet image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #end
+    #end
+#end
+
+
+## ***************************************************************************************************************
+## IMAGE BANNER
+
+#macro(ImageBanner $banner)
+
+    #set($image="/")
+    #set($tabletImage="/")
+    #set($mobileImage="/")
+    #set($alt="")
+    #set($smallClasses = "")
+    #set($mediumClasses = "")
+    #set($largeClasses = "")
+
+    #set($image = $_XPathTool.selectSingleNode($banner, "image/path").value)
+    #set($tabletImage = $_XPathTool.selectSingleNode($banner, "tablet-image/path").value)
+    #set($mobileImage = $_XPathTool.selectSingleNode($banner, "mobile-image/path").value)
+    #set($alt = $_XPathTool.selectSingleNode($banner, "image/summary").value)
+
+    #if($image != "/")
+        #if($mobileImage=="/" and $tabletImage=="/")##if mobile image and tablet image are not set
+            #set($smallClasses = "")
+            #set($mediumClasses = "")
+            #set($largeClasses = "img--large")
+        #elseif($mobileImage!="/" and $tabletImage=="/")##if mobile image is set and tablet image is not set
+            #set($smallClasses = "img--small hide-for-medium")
+            #set($mediumClasses = "")
+            #set($largeClasses = "img--large show-for-medium")
+        #elseif($mobileImage=="/" and $tabletImage!="/")##if tablet image is set and mobile image is not set
+            #set($smallClasses = "img--small hide-for-large")
+            #set($mediumClasses = "")
+            #set($largeClasses = "img--large show-for-large")
+        #elseif($mobileImage!="/" and $tabletImage!="/")##if mobile image and tablet image are both set
+            #set($smallClasses = "img--small hide-for-medium")
+            #set($mediumClasses = "img--medium show-for-medium-only")
+            #set($largeClasses = "img--large show-for-large")
+        #end
+
+    <div id="banner" class="section banner image">
+        #set($image = "[system-asset]" + $image + "[/system-asset]")
+        #if($smallClasses=="" and $mediumClasses=="")
+            <div class="$!largeClasses">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #elseif($mediumClasses=="" and $smallClasses!="")
+            <div class="$!smallClasses">
+                #if($mobileImage!="/" and $tabletImage=="/")
+                    #set($mobileImage = "[system-asset]" + $mobileImage + "[/system-asset]")
+                    <div class="bg-image-cover" style="background-image: url('$!mobileImage');"></div>
+                #elseif($mobileImage=="/" and $tabletImage!="/")
+                    #set($tabletImage = "[system-asset]" + $tabletImage + "[/system-asset]")
+                    <div class="bg-image-cover" style="background-image: url('$!tabletImage');"></div>
+                #end
+            </div>
+            <div class="$!largeClasses">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #elseif($smallClasses!="" and $mediumClasses!="")
+            #set($mobileImage = "[system-asset]" + $mobileImage + "[/system-asset]")
+            #set($tabletImage = "[system-asset]" + $tabletImage + "[/system-asset]")
+            <div class="$!smallClasses">
+                <div class="bg-image-cover" style="background-image: url('$!mobileImage');"></div>
+            </div>
+            <div class="$!mediumClasses">
+                <div class="bg-image-cover" style="background-image: url('$!tabletImage');"></div>
+            </div>
+            <div class="$!largeClasses">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #end
+    </div>
+    #else
+        #error("Please provide a desktop image for the image banner.")
+    #end
+
+#end
+
+## ***************************************************************************************************************
+
+
+## TEXT BANNER
+
+#macro(TextBanner $banner)
+
+    #set($header="")
+    #set($subhead="")
+    #set($internal="")
+    #set($external="")
+    #set($asset="")
+    #set($link="")
+    #set($linkLabel="")
+
+    ## header and subheader
+    #set($header = $_XPathTool.selectSingleNode($banner, "header").value)
+    #set($subhead = $_XPathTool.selectSingleNode($banner, "subhead").value)
+
+    ## internal link or external URL
+    #set($internal = $_XPathTool.selectSingleNode($banner, "link-internal/path").value)
+    #set($external = $_XPathTool.selectSingleNode($banner, "link-external").value)
+
+    #if($internal!="/")
+        #set($link = $internal)
+    #elseif($external!="")
+        #set($link = $external)
+    #elseif($asset && $asset!="/")
+        #set($link = $asset)
+    #end
+    #set($link = $link.trim())
+
+    #set($linkLabel = $_XPathTool.selectSingleNode($banner, "link-label").value)
+    #set($linkLabel = $linkLabel.trim())
+
+    ## Background color
+    #set($sectionBackgroundColor = "")
+    #set($sectionBackgroundColor = $_XPathTool.selectSingleNode($banner, "background/bg-color").value)
+
+    #if($sectionBackgroundColor == "None")
+        #set($sectionBackgroundColor = "bg-none")
+    #elseif($sectionBackgroundColor == "Crimson")
+        #set($sectionBackgroundColor = "bg-crimson")
+    #elseif($sectionBackgroundColor == "Light Gray")
+        #set($sectionBackgroundColor = "bg-gray")
+    #elseif($sectionBackgroundColor == "Secondary")
+        #set($sectionBackgroundColor = "bg-secondary")
+    #elseif($sectionBackgroundColor == "Midnight")
+        #set($sectionBackgroundColor = "bg-midnight")
+    #else
+        #set($sectionBackgroundColor = "bg-none")
+    #end
+    #set($sectionBackgroundColor = $sectionBackgroundColor + " ")
+
+    ## Set section background based on section background color and background image
+    #if($sectionBackgroundColor.indexOf('bg-none') == -1 and $sectionBackgroundColor.indexOf(
+        'bg-gray') == -1 and $sectionBackgroundColor.indexOf('bg-midnight') == -1)
+        #set($sectionBackground = $sectionBackgroundColor + "bg-dark ")
+    #else
+        #set($sectionBackground = $sectionBackgroundColor)
+    #end
+
+    #set($sectionClasses = "")
+    #set($sectionClasses = $!sectionBackground + "text-overlay section")
+
+    #if($header!="" or $subhead!="")
+    <div class="$!sectionClasses" id="banner">
+        <div class="row pad">
+            <div class="full-width">
+                #if($header!="")
+                    <h2>#cleanup($header)</h2>
+                #end
+                #if($subhead!="")
+                    <p>#cleanup($subhead)</p>
+                #end
+                #if($link!="" and $linkLabel!="")
+                    <a href="$!link" class="button invert">#cleanup($linkLabel)</a>
+                #end
+            </div>
+        </div>
+    </div>
+    #else
+        #error("Please enter a header or a subhead for the text banner.")
+    #end
+
+#end
+
+## ***************************************************************************************************************
+
+## VIDEO BANNER
+
+#macro(VideoBanner $banner)
+
+    #set($mp4="/")
+    #set($webm="/")
+    #set($mobileImage="/")
+    #set($fallbackImage="/")
+    #set($transcript = "")
+
+    #set($mp4 = $_XPathTool.selectSingleNode($banner, "mp4/path").value)
+    #set($webm = $_XPathTool.selectSingleNode($banner, "webm/path").value)
+    #set($mobileImage = $_XPathTool.selectSingleNode($banner, "mobile-image/path").value)
+    #set($fallbackImage = $_XPathTool.selectSingleNode($banner, "fallback-image/path").value)
+    #set($transcript = $_SerializerTool.serialize($banner.getChild("transcript"), true))
+
+    #if($mp4 != "/" and $webm != "/" and $fallbackImage != "/")
+        #set($mp4 = "[system-asset]" + $mp4 + "[/system-asset]")
+        #set($webm = "[system-asset]" + $webm + "[/system-asset]")
+        #set($fallbackImage = "[system-asset]" + $fallbackImage + "[/system-asset]")
+
+    <div id="banner" class="section banner bg-video">
+        #if($mobileImage != "/")##if mobile image present, use it
+            #set($mobileImage = "[system-asset]" + $mobileImage + "[/system-asset]")
+            <div class="show-for-small-only" data-ratio="3x2">
+                <div class="bg-image-cover" style="background-image: url('$!mobileImage');"></div>
+            </div>
+        #else##if mobile image not present, use fallback image
+            <div class="show-for-small-only" data-ratio="3x1">
+                <div class="bg-image-cover" style="background-image: url('$!fallbackImage');"></div>
+            </div>
+        #end
+        <div class="show-for-medium-only" data-ratio="3x1">##use fallback image for tablet view
+            <div class="bg-image-cover" style="background-image: url('$!fallbackImage');"></div>
+        </div>
+        <div class="show-for-large" data-ratio="3x1">##use fallback image for desktop view
+            <div class="bg-image-cover" style="background-image: url('$!fallbackImage');"></div>
+        </div>
+        <div class="bg-video-viewport" data-height="400" data-mp4="$!mp4" data-webm="$!webm" data-width="1800"></div>
+    </div>
+        #if($banner.getChild("transcript"))
+            #if($banner.getChild("transcript").value!="")
+            <div class="visually-hidden"><p>Description of the video:</p>$!transcript</div>
+            #else
+                #error("Please provide a transcript for the video to make it more accessible.")
+            #end
+        #end
+    #else
+        #if(($mp4!="/" and $webm!="/") and $fallbackImage=="/")## fallback image not provided
+            #error("Please provide a fallback image for the video banner.")
+        #elseif(($mp4!="/" and $fallbackImage!="/") and $webm=="/")) ## webm not provided
+            #error("Please provide a video in webm format.")
+        #elseif(($webm!="/" and $fallbackImage!="/") and $mp4=="/"))## mp4 not provided
+            #error("Please provide a video in mp4 format.")
+        #elseif(($mp4=="/" and $webm=="/") and $fallbackImage!="/")## mp4 and webm not provided
+            #error("Please provide videos in both mp4 and webm format.")
+        #elseif(($mp4=="/" and $fallbackImage=="/") and $webm!="/"))## mp4 and fallback image not provided
+            #error("Please provide a video in mp4 format and also a fallback image.")
+        #elseif(($webm=="/" and $fallbackImage=="/") and $mp4!="/"))## webm and fallback image not provided
+            #error("Please provide a video in webm format and also a fallback image.")
+        #else## mp4, webm and fallback image not provided
+            #error("Please provide videos in both mp4 and webm format, and also provide a fallback image.")
+        #end
+    #end
+
+#end
+
+## ***************************************************************************************************************
+
+## TEXT OVERLAY BANNER
+
+#macro(TextOverlayBanner $banner)
+
+    #set($header="")
+    #set($subhead="")
+    #set($internal="")
+    #set($external="")
+    #set($asset="")
+    #set($link="")
+    #set($linkLabel="")
+    #set($contentPosition="")
+
+    ## header and subheader
+    #set($header = $_XPathTool.selectSingleNode($banner, "header").value)
+    #set($subhead = $_XPathTool.selectSingleNode($banner, "subhead").value)
+
+    ## internal link or external URL
+    #set($internal = $_XPathTool.selectSingleNode($banner, "link-internal/path").value)
+    #set($external = $_XPathTool.selectSingleNode($banner, "link-external").value)
+
+    #if($internal!="/")
+        #set($link = $internal)
+    #elseif($external!="")
+        #set($link = $external)
+    #elseif($asset && $asset!="/")
+        #set($link = $asset)
+    #end
+    #set($link = $link.trim())
+
+    #set($linkLabel = $_XPathTool.selectSingleNode($banner, "link-label").value)
+    #set($linkLabel = $linkLabel.trim())
+    #set($contentPosition = $_XPathTool.selectSingleNode($banner, "content-position").value)
+
+    #if($contentPosition=="Right")
+        #set($contentPosition = "content-right ")
+    #else
+        #set($contentPosition = "content-left ")
+    #end
+
+    #set($image="/")
+    #set($tabletImage="/")
+    #set($mobileImage="/")
+    #set($alt="")
+
+    #set($image = $_XPathTool.selectSingleNode($banner, "image/path").value)
+    #set($tabletImage = $_XPathTool.selectSingleNode($banner, "tablet-image/path").value)
+    #set($mobileImage = $_XPathTool.selectSingleNode($banner, "mobile-image/path").value)
+    #set($alt = $_XPathTool.selectSingleNode($banner, "image/summary").value)
+
+    #set($sectionClasses = "")
+    #set($sectionClasses = $!contentPosition + "text-overlay section bg-image banner")
+
+    #if(($header!="" or $subhead!="") and $image != "/")
+    <div class="$!sectionClasses" id="banner">
+        #set($image = "[system-asset]" + $image + "[/system-asset]")
+        #if($mobileImage != "/")##if mobile image present, use it
+            #set($mobileImage = "[system-asset]" + $mobileImage + "[/system-asset]")
+            <div class="show-for-small-only" data-ratio="3x2">
+                <div class="bg-image-cover" style="background-image: url('$!mobileImage');"></div>
+            </div>
+        #else
+            <div class="show-for-small-only" data-ratio="3x1">##if mobile image not present, use desktop image
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #end
+        #if($tabletImage != "/")##if tablet image present, use it
+            #set($tabletImage = "[system-asset]" + $tabletImage + "[/system-asset]")
+            <div class="show-for-medium-only" data-ratio="2x1">
+                <div class="bg-image-cover" style="background-image: url('$!tabletImage');"></div>
+            </div>
+        #else##if tablet image not present, use desktop image
+            <div class="show-for-medium-only" data-ratio="3x1">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #end
+        <div class="show-for-large" data-ratio="3x1">##always show desktop image
+            <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+        </div>
+        <div class="row pad">
+            <div class="banner--content text-overlay--content">
+                #if($header!="")
+                    <h2 class="title">#cleanup($header)</h2>
+                #end
+                #if($subhead!="")
+                    <p class="teaser">#cleanup($subhead)</p>
+                #end
+                #if($link!="" and $linkLabel!="")
+                    <a href="$!link" class="button">#cleanup($linkLabel)</a>
+                #end
+            </div>
+        </div>
+    </div>
+    #else
+        #if(($header!="" or $subhead!="") and $image== "/")
+            #error("Please provide a desktop image for the text overlay banner.")
+        #elseif(($header=="" and $subhead=="") and $image!= "/")
+            #error("Please enter a header or a subhead for the text overlay banner.")
+        #else
+            #error("Please provide a desktop image and enter a header or a subhead for the text overlay banner.")
+        #end
+    #end
+
+#end
+
+## ***************************************************************************************************************
+
+## TEXT + IMAGE (50/50) BANNER
+
+#macro(TextImageSplitBanner $banner)
+
+    #set($header="")
+    #set($subhead="")
+    #set($internal="")
+    #set($external="")
+    #set($asset="")
+    #set($link="")
+    #set($linkLabel="")
+    #set($contentPosition="")
+
+    ## header and subheader
+    #set($header = $_XPathTool.selectSingleNode($banner, "header").value)
+    #set($subhead = $_XPathTool.selectSingleNode($banner, "subhead").value)
+
+    ## internal link or external URL
+    #set($internal = $_XPathTool.selectSingleNode($banner, "link-internal/path").value)
+    #set($external = $_XPathTool.selectSingleNode($banner, "link-external").value)
+
+    #if($internal!="/")
+        #set($link = $internal)
+    #elseif($external!="")
+        #set($link = $external)
+    #elseif($asset && $asset!="/")
+        #set($link = $asset)
+    #end
+    #set($link = $link.trim())
+
+    #set($linkLabel = $_XPathTool.selectSingleNode($banner, "link-label").value)
+    #set($linkLabel = $linkLabel.trim())
+    #set($contentPosition = $_XPathTool.selectSingleNode($banner, "content-position").value)
+
+    #if($contentPosition=="Right")
+        #set($contentPosition = "content-right ")
+    #else
+        #set($contentPosition = "content-left ")
+    #end
+
+    ## Background color
+    #set($sectionBackgroundColor = "")
+    #set($sectionBackgroundColor = $_XPathTool.selectSingleNode($banner, "background/bg-color").value)
+
+    #if($sectionBackgroundColor == "None")
+        #set($sectionBackgroundColor = "bg-none")
+    #elseif($sectionBackgroundColor == "Crimson")
+        #set($sectionBackgroundColor = "bg-crimson")
+    #elseif($sectionBackgroundColor == "Light Gray")
+        #set($sectionBackgroundColor = "bg-gray")
+    #elseif($sectionBackgroundColor == "Secondary")
+        #set($sectionBackgroundColor = "bg-secondary")
+    #elseif($sectionBackgroundColor == "Midnight")
+        #set($sectionBackgroundColor = "bg-midnight")
+    #else
+        #set($sectionBackgroundColor = "bg-none")
+    #end
+    #set($sectionBackgroundColor = $sectionBackgroundColor + " ")
+
+    ## Set section background based on section background color and background image
+    #if($sectionBackgroundColor.indexOf('bg-none') == -1 and $sectionBackgroundColor.indexOf('bg-gray') == -1)
+        #set($sectionBackground = $sectionBackgroundColor + "bg-dark ")
+    #else
+        #set($sectionBackground = $sectionBackgroundColor)
+    #end
+
+    #set($image="/")
+    #set($tabletImage="/")
+    #set($mobileImage="/")
+    #set($alt="")
+
+    #set($image = $_XPathTool.selectSingleNode($banner, "image/path").value)
+    #set($tabletImage = $_XPathTool.selectSingleNode($banner, "tablet-image/path").value)
+    #set($mobileImage = $_XPathTool.selectSingleNode($banner, "mobile-image/path").value)
+    #set($alt = $_XPathTool.selectSingleNode($banner, "image/summary").value)
+
+    #set($sectionClasses = "")
+    #set($sectionClasses = $!contentPosition + $!sectionBackground + "text-image section banner")
+
+    #if(($header!="" or $subhead!="") and $image!="/" and $tabletImage!="/")
+    <div class="$!sectionClasses" id="banner">
+        #set($image = "[system-asset]" + $image + "[/system-asset]")
+        #if($mobileImage != "/")##if mobile image present, use it
+            #set($mobileImage = "[system-asset]" + $mobileImage + "[/system-asset]")
+            <div class="show-for-small-only" data-ratio="3x2">
+                <div class="bg-image-cover" style="background-image: url('$!mobileImage');"></div>
+            </div>
+        #else##if mobile image not present, use desktop image
+            <div class="show-for-small-only" data-ratio="2x1">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #end
+        #if($tabletImage != "/")##if tablet image present, use it
+            #set($tabletImage = "[system-asset]" + $tabletImage + "[/system-asset]")
+            <div class="show-for-medium-only" data-ratio="2x3">
+                <div class="bg-image-cover" style="background-image: url('$!tabletImage');"></div>
+            </div>
+        #else##if tablet image, not present, use desktop image
+            <div class="show-for-medium-only" data-ratio="2x1">
+                <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+            </div>
+        #end
+        <div class="show-for-large" data-ratio="2x1">##always show desktop image
+            <div class="bg-image-cover" style="background-image: url('$!image');"></div>
+        </div>
+        <div class="row pad">
+            <div class="banner--content text-image--content">
+                #if($header!="")
+                    <h2 class="title">#cleanup($header)</h2>
+                #end
+                #if($subhead!="")
+                    <p class="teaser">#cleanup($subhead)</p>
+                #end
+                #if($link!="" and $linkLabel!="")
+                    <a href="$!link" class="button">#cleanup($linkLabel)</a>
+                #end
+            </div>
+        </div>
+    </div>
+    #else
+        #if(($header!="" or $subhead!="") and $image=="/" and $tabletImage!="/")
+            #error("Please provide a desktop image for the text + image (50/50) banner.")
+        #elseif(($header!="" or $subhead!="") and $image!="/" and $tabletImage=="/")
+            #error("Please provide a tablet image for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image!="/" and $tabletImage!="/")
+            #error("Please enter a header or a subhead for the text + image (50/50) banner.")
+        #elseif(($header=="" or $subhead=="") and $image=="/" and $tabletImage=="/")
+            #error("Please provide a desktop image and a tablet image for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image=="/" and $tabletImage!="/")
+            #error(
+                "Please provide a desktop image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #elseif(($header=="" and $subhead=="") and $image!="/" and $tabletImage=="/")
+            #error(
+                "Please provide a tablet image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #else
+            #error(
+                "Please provide a desktop image and a tablet image and also enter a header or a subhead for the text + image (50/50) banner.")
+        #end
+    #end
+
+#end
+
+## ***************************************************************************************************************
+
+## SLIDER BANNER
+
+#macro(RotateBanner $banner)
+
+    #set($rotates = [])
+    #set($rotate = "")
+    #set($header="")
+    #set($subhead="")
+    #set($internal="")
+    #set($external="")
+    #set($asset="")
+    #set($link="")
+    #set($linkLabel="")
+    #set($focalPoint="")
+
+    #set($image="/")
+
+    #set($rotates = $_XPathTool.selectNodes($banner, "rotate"))
+
+
+
+
+<!-- THIS IS THE SLIDER -->
+<div id="jssor_1"
+     style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1800px; height: 600px; overflow: hidden; visibility: hidden;">
+    <!-- Loading Screen -->
+    <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+        <div style="position:absolute;display:block;background:url('/_assets/css/img/ajax-loader.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+    </div>
+    <div id="banner" role="banner" itemscope="itemscope" itemtype="http://schema.org/ImageObject" data-u="slides"
+         style="cursor: default; position: relative; top: 0px; left: 0px; width: 1800px; height: 600px; overflow: hidden;">
+
+        #foreach($rotate in $rotates)
+            #set($image = $_XPathTool.selectSingleNode($rotate, "image/path").value)
+            #set($mobileImage = $_XPathTool.selectSingleNode($rotate, "mobile-image/path").value)
+
+            ## header and subheader
+            #set($header = $_XPathTool.selectSingleNode($rotate, "header").value)
+            #set($subhead = $_XPathTool.selectSingleNode($rotate, "subhead").value)
+
+            ## internal link or external URL
+            #set($internal = $_XPathTool.selectSingleNode($rotate, "link-internal/path").value)
+            #set($external = $_XPathTool.selectSingleNode($rotate, "link-external").value)
+
+            #if($internal!="/")
+                #set($link = $internal)
+            #elseif($external!="")
+                #set($link = $external)
+            #elseif($asset && $asset!="/")
+                #set($link = $asset)
+            #end
+            #set($link = $link.trim())
+            <div>
+
+                #if($link!="")
+                <a href="$link">
+                #end
+                <img data-u="image" src="$image" alt="$alt"/>
+                #if($link!="")
+                </a>
+                #end
+                #if($header!="" or $subhead!="")
+                    <div class="banner-text">
+                        #if($header!="")
+                            <div class="js-title">#cleanup($header)</div>
+                        #end
+                        #if($subhead!="")
+                            <div class="js-text">#cleanup($subhead)</div>
+                        #end
+                    </div>
+
+                #end
+
+            </div>
+        #end
+    </div>
+
+
+    <!-- Bullet Navigator -->
+    <div data-u="navigator" class="jssorb05" style="bottom:26px;right:26px;" data-autocenter="1">
+        <!-- bullet navigator item prototype -->
+        <div data-u="prototype" style="width:26px;height:26px;"></div>
+    </div>
+    <!-- Arrow Navigator -->
+    <span data-u="arrowleft" class="jssora22l" style="width:60px;height:100%;" data-autocenter="2"></span>
+    <span data-u="arrowright" class="jssora22r" style="width:60px;height:100%;" data-autocenter="2"></span>
+</div>
+<!-- #endregion Jssor Slider End -->
+#end
+
+## ***************************************************************************************************************
+
+
+
+## BANNER
+
+#macro(Banner)
+
+    #set($banner="")
+    #set($bannerType="")
+
+    #set($banner = $_XPathTool.selectSingleNode($contentRoot, "banner"))
+    #set($bannerType = $_XPathTool.selectSingleNode($banner, "type").value)
+
+    #if($bannerType == "Image" || $bannerType == "Video")
+    <element action="hide" name="banner-decorative">
+    #else
+    <element action="hide" name="banner-informative">
+    #end
+
+    #if($bannerType == "-")
+        ## Do nothing
+    #elseif($bannerType == "Image")
+        #ImageBanner($banner)
+    #elseif($bannerType == "Text")
+        #TextBanner($banner)
+    #elseif($bannerType == "Video")
+        #VideoBanner($banner)
+    #elseif($bannerType == "Text Overlay")
+        #TextOverlayBanner($banner)
+    #elseif($bannerType == "Text + Image (50/50)")
+        #TextImageSplitBanner($banner)
+    #elseif($bannerType == "Slider")
+        #RotateBanner($banner)
+    #elseif($bannerType == "Text + Image (50/50) Slider")
+        #TextImageSplitSliderBanner($banner)
+    #else
+        #error("This banner type does not exist.")
+    #end
+</element>
+
+    ## Banner class to be added to <body/>
+    #set($hasBanner="")
+    #if($bannerType == "Image" and $image != "/")
+        #set($hasBanner = "has-banner")
+    #else
+        #set($hasBanner = "no-banner")
+    #end
+
+    <element action="hide" name="has-banner">$!hasBanner</element>
+
+#end
+## ***************************************************************************************************************

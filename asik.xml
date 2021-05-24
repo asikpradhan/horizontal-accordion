@@ -1,0 +1,308 @@
+<system-data-structure>
+    <text cols="80" field-id="6664b059814f4e102049a2de6160f4fc" identifier="notes" label="Internal Notes (will show in Cascade, but will not publish)" multi-line="true" rows="3"/>
+    <group collapsed="true" identifier="social-media-meta" label="Social Media">
+        <group identifier="share" label="Share Widget">
+            <text field-id="6664b059814f4e102049a2de97a20d7a" identifier="use" label="Share this page?" type="checkbox">
+                <checkbox-item value="Yes"/>
+            </text>
+        </group>
+        <group identifier="facebook" label="Facebook">
+            <text field-id="6664b059814f4e102049a2defa19019d" identifier="title" label="Title (max 70 characters)" maxlength="70" size="80"/>
+            <text field-id="6664b059814f4e102049a2de5f79de35" identifier="description" label="Description (max 150 characters)" maxlength="150" size="80"/>
+            <asset field-id="6664b059814f4e102049a2de3230463a" identifier="image" label="Image (1200px x 630px)" type="file"/>
+        </group>
+        <group identifier="twitter" label="Twitter">
+            <text field-id="6664b059814f4e102049a2de84724f5b" identifier="title" label="Title (max 70 characters)" maxlength="70" size="80"/>
+            <text field-id="6664b059814f4e102049a2de9cfc701a" identifier="description" label="Description (max 150 characters)" maxlength="150" size="80"/>
+            <asset field-id="6664b059814f4e102049a2de9f1690d0" identifier="image" label="Image (1200px x 630px)" type="file"/>
+        </group>
+    </group>
+    <group collapsed="true" identifier="banner" label="Banner">
+        <text default="-" field-id="6664b059814f4e102049a2de446dc2e4" identifier="type" label="Type" type="dropdown">
+            <dropdown-item value="-"/>
+            <dropdown-item show-fields="banner/image, banner/tablet-image, banner/mobile-image" value="Image"/>
+            <dropdown-item show-fields="banner/header, banner/subhead, banner/link-label, banner/link-internal, banner/link-external, banner/background" value="Text"/>
+            <dropdown-item show-fields="banner/mp4, banner/webm, banner/fallback-image, banner/mobile-image, banner/transcript" value="Video"/>
+            <dropdown-item show-fields="banner/content-position, banner/image, banner/tablet-image, banner/mobile-image, banner/header, banner/subhead, banner/link-label, banner/link-internal, banner/link-external" value="Text Overlay"/>
+            <dropdown-item show-fields="banner/image, banner/tablet-image, banner/mobile-image, banner/content-position, banner/header, banner/subhead, banner/link-label, banner/link-internal, banner/link-external, banner/background" value="Text + Image (50/50)"/>
+            <dropdown-item show-fields="banner/half-half-slider" value="Text + Image (50/50) Slider"/>
+        </text>
+        <asset field-id="6664b059814f4e102049a2de087e2825" identifier="image" label="Desktop Image" type="file"/>
+        <asset field-id="6664b059814f4e102049a2de9cf45d08" identifier="tablet-image" label="Tablet Image" type="file"/>
+        <asset field-id="6664b059814f4e102049a2de70948b4a" identifier="mobile-image" label="Mobile Image" type="file"/>
+        <asset field-id="6664b059814f4e102049a2de9e86f2d8" identifier="mp4" label="MP4" type="file"/>
+        <asset field-id="6664b059814f4e102049a2de9c45acc2" identifier="webm" label="WebM" type="file"/>
+        <asset field-id="6664b059814f4e102049a2dec3456766" identifier="fallback-image" label="Fallback Image" type="file"/>
+        <text field-id="6664b059814f4e102049a2de00cd6805" identifier="transcript" label="Transcript" wysiwyg="true"/>
+        <text default="Left" field-id="6664b059814f4e102049a2dea2e80190" identifier="content-position" label="Content position" type="radiobutton">
+            <radio-item value="Left"/>
+            <radio-item value="Right"/>
+        </text>
+        <text field-id="6664b059814f4e102049a2decbad4f69" identifier="header" label="Header" size="80"/>
+        <text cols="80" field-id="6664b059814f4e102049a2ded8220e98" identifier="subhead" label="Subhead" multi-line="true" rows="3"/>
+        <text field-id="6664b059814f4e102049a2de9b881120" identifier="link-label" label="Link Label" size="80"/>
+        <asset field-id="6664b059814f4e102049a2dece4ba6ae" identifier="link-internal" label="Internal Link" type="page,file,symlink"/>
+        <text field-id="6664b059814f4e102049a2de6126bad1" identifier="link-external" label="External Link" size="80"/>
+        <!-- ROTATE BANNER -->
+        <group identifier="half-half-slider" label="50/50 Slider" multiple="true">
+            <asset field-id="6664f780814f4e102049a2de1193f694" identifier="h-image" label="Desktop Image" type="file"/>
+            <asset field-id="6664f780814f4e102049a2de7706bb75" identifier="h-tablet-image" label="Tablet Image" type="file"/>
+            <asset field-id="6664f780814f4e102049a2deda93df45" identifier="h-mobile-image" label="Mobile Image" type="file"/>
+            <text default="Left" field-id="6664f780814f4e102049a2de3a8553cc" identifier="h-content-position" label="Content position" type="radiobutton">
+                <radio-item value="Left"/>
+                <radio-item value="Right"/>
+            </text>
+            <text field-id="6664f780814f4e102049a2defff098f3" identifier="h-header" label="Header" size="80"/>
+            <text cols="80" field-id="6664f780814f4e102049a2de54ad6a26" identifier="h-subhead" label="Subhead" multi-line="true" rows="3"/>
+            <text field-id="6664f780814f4e102049a2debc5162e2" identifier="h-link-label" label="Link Label" size="80"/>
+            <asset field-id="6664f780814f4e102049a2de437e7344" identifier="h-link-internal" label="Internal Link" type="page,file,symlink"/>
+            <text field-id="6664f780814f4e102049a2ded3d9209f" identifier="h-link-external" label="External Link" size="80"/>
+            <text default="Crimson" field-id="6664f780814f4e102049a2de4dde78bc" identifier="h-bgcolor" label="Background Color" type="dropdown">
+                <dropdown-item value="Crimson"/>
+                <dropdown-item value="Secondary"/>
+                <dropdown-item value="Light Gray"/>
+                <dropdown-item value="Midnight"/>
+            </text>
+        </group>
+        <!-- END ROTATE BANNER -->
+        <group identifier="background" label="Background">
+            <text default="Crimson" field-id="6664b059814f4e102049a2deef81ecd8" identifier="bg-color" label="Color" type="dropdown">
+                <dropdown-item value="Crimson"/>
+                <dropdown-item value="Secondary"/>
+                <dropdown-item value="Light Gray"/>
+                <dropdown-item value="Midnight"/>
+            </text>
+        </group>
+    </group>
+    <group identifier="section" label="Section" multiple="true">
+        <text field-id="6664b059814f4e102049a2de4680212d" identifier="internal-label" label="Internal Label" size="80"/>
+        <text default="On Page" field-id="6664b059814f4e102049a2deb545486c" identifier="type" label="Section Type" type="dropdown">
+            <dropdown-item show-fields="section/details, section/chunk" value="On Page"/>
+            <dropdown-item show-fields="section/attached-section" value="Attached Section"/>
+            <dropdown-item show-fields="section/details, section/custom-section" value="Custom Section"/>
+        </text>
+        <asset field-id="6664b05a814f4e102049a2de30f59ab0" identifier="attached-section" label="Attached section" render-content-depth="133" type="page"/>
+        <group collapsed="true" identifier="details" label="Details">
+            <group identifier="background" label="Background">
+                <text default="None" field-id="6664b05a814f4e102049a2deb55d65d4" identifier="bg-color" label="Color" type="dropdown">
+                    <dropdown-item value="None"/>
+                    <dropdown-item value="Crimson"/>
+                    <dropdown-item value="Secondary"/>
+                    <dropdown-item value="Light Gray"/>
+                </text>
+                <asset field-id="6664b05a814f4e102049a2de0fb2f52f" identifier="bg-image" label="Background Image" type="file"/>
+                <text field-id="6664b05a814f4e102049a2dee01ab375" identifier="parallax" label="Parallax" type="checkbox">
+                    <checkbox-item value="Yes"/>
+                </text>
+            </group>
+            <text default="-" field-id="6664b05a814f4e102049a2de7cacd1ac" identifier="grid" label="Arrange all chunks in this section in grids?" type="dropdown">
+                <dropdown-item value="-"/>
+                <dropdown-item value="Halves"/>
+                <dropdown-item value="Thirds"/>
+            </text>
+            <text field-id="6664b05a814f4e102049a2de6b062767" identifier="breakout" label="Breakout?" type="checkbox">
+                <checkbox-item value="Yes"/>
+            </text>
+            <text field-id="6664b05a814f4e102049a2de674ae4c0" help-text="Custom CSS class(es) for this section" identifier="class" label="CSS Class" size="80"/>
+            <text field-id="6664b05a814f4e102049a2deaf60ef1a" help-text="Custom CSS ID for this section" identifier="id" label="CSS ID" size="80"/>
+            <text default="-" field-id="6664b05a814f4e102049a2de11b68819" identifier="bottom-style" label="Section Bottom Style" type="dropdown">
+                <dropdown-item value="-"/>
+                <dropdown-item value="Extra Space"/>
+                <dropdown-item value="Horizontal Rule"/>
+            </text>
+            <text field-id="6664b05a814f4e102049a2dea29f4c05" identifier="header" label="Section Header" size="80"/>
+            <text field-id="6664b05a814f4e102049a2de084a0a40" help-text="All framework pages should be structured in a hierarchical manner. Do not use text formatting, such as font size or bold to give the visual appearance of headings - use actual heading for all content headings." identifier="header-level" label="Header Level" type="dropdown">
+                <dropdown-item value=""/>
+                <dropdown-item value="h2"/>
+                <dropdown-item value="h3"/>
+                <dropdown-item value="h4"/>
+                <dropdown-item value="h5"/>
+                <dropdown-item value="h6"/>
+            </text>
+        </group>
+        <asset field-id="6664b05a814f4e102049a2ded94e72db" identifier="custom-section" label="Custom Section" render-content-depth="231" type="block"/>
+        <group collapsed="true" identifier="chunk" label="Chunk" multiple="true">
+            <text default="Text" field-id="6664b05a814f4e102049a2deb11533fa" identifier="type" label="Type" type="dropdown">
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/content" value="Text"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level" value="Full Width Header"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/content, section/chunk/details/image, section/chunk/details/attribution" value="Pullquote"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/content, section/chunk/details/image" value="Callout"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/header-level-accordion, section/chunk/details/fold, section/chunk/details/direction" value="Accordion"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/content" value="Panel"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/subhead, section/chunk/details/link-internal, section/chunk/details/link-external" value="Interactive Panel"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/cta-link" value="Call to Action"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/subhead-feature, section/chunk/details/content, section/chunk/details/image, section/chunk/details/link-label, section/chunk/details/link-internal, section/chunk/details/link-external" value="Feature"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/image-type" value="Image"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/stat-number, section/chunk/details/content, section/chunk/details/link-label, section/chunk/details/link-internal, section/chunk/details/link-external" value="Stat"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/table-caption, section/chunk/details/table-header, section/chunk/details/table-body" value="Table"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/video-type" value="Video"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/audio-type, section/chunk/details/caption, section/chunk/details/attribution" value="Audio"/>
+                <dropdown-item show-fields="section/chunk/details/header, section/chunk/details/header-level, section/chunk/details/position, section/chunk/details/feed-type, section/chunk/details/mode, section/chunk/details/link-label, section/chunk/details/link-internal, section/chunk/details/link-external" value="Feed"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/social-type" value="Social Media"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/code" value="Code"/>
+                <dropdown-item show-fields="section/chunk/details/position, section/chunk/details/snippet-type, section/chunk/details/code" value="Code Snippet"/>
+            </text>
+            <group collapsed="true" identifier="details" label="Details">
+                <text field-id="6664b05a814f4e102049a2de4403185d" identifier="header" label="Chunk Header" size="80"/>
+                <text field-id="6664b05a814f4e102049a2de834de2cd" help-text="All framework pages should be structured in a hierarchical manner. Do not use text formatting, such as font size or bold to give the visual appearance of headings - use actual heading for all content headings." identifier="header-level" label="Header Level" type="dropdown">
+                    <dropdown-item value=""/>
+                    <dropdown-item value="h2"/>
+                    <dropdown-item value="h3"/>
+                    <dropdown-item value="h4"/>
+                    <dropdown-item value="h5"/>
+                    <dropdown-item value="h6"/>
+                </text>
+                <text default="Full" field-id="6664b05a814f4e102049a2de69d2f78d" identifier="position" label="Position" type="dropdown">
+                    <dropdown-item show-fields="section/chunk/details/size" value="Left"/>
+                    <dropdown-item show-fields="section/chunk/details/size" value="Right"/>
+                    <dropdown-item value="Full"/>
+                    <dropdown-item value="Breakout"/>
+                </text>
+                <text default="One Half" field-id="6664b05a814f4e102049a2de83dc37b8" identifier="size" label="Size" type="dropdown">
+                    <dropdown-item value="One Half"/>
+                    <dropdown-item value="One Third"/>
+                    <dropdown-item value="Two Thirds"/>
+                </text>
+                <text default="Vertical" field-id="5be87eab814f4e1017bd628a0afd109c" identifier="direction" label="Direction" type="dropdown">
+                    <dropdown-item value="Vertical"/>
+                    <dropdown-item value="Horizontal"/>
+                </text>
+                <text cols="80" field-id="6664b05a814f4e102049a2dee0c6444e" identifier="subhead-feature" label="Subhead" maximum-number="2" multi-line="true" multiple="true" rows="3"/>
+                <text cols="80" field-id="6664b05a814f4e102049a2de4927410d" identifier="subhead" label="Subhead" multi-line="true" rows="3"/>
+                <text field-id="6664b05a814f4e102049a2de617c6882" identifier="stat-number" label="Stat Number" size="80"/>
+                <text field-id="6664b05a814f4e102049a2de8aa9f644" identifier="content" label="Content" wysiwyg="true"/>
+                <text default="-" field-id="6664b05a814f4e102049a2de3a2f14f0" identifier="image-type" label="Image Type" type="dropdown">
+                    <dropdown-item value="-"/>
+                    <dropdown-item show-fields="section/chunk/details/image, section/chunk/details/caption, section/chunk/details/attribution" value="Single"/>
+                    <dropdown-item show-fields="section/chunk/details/slide" value="Slideshow"/>
+                    <dropdown-item show-fields="section/chunk/details/large-image-placement, section/chunk/details/essay-large-image, section/chunk/details/essay-small-image-1, section/chunk/details/essay-small-image-2, section/chunk/details/caption, section/chunk/details/attribution" value="Essay"/>
+                </text>
+                <asset field-id="6664b05a814f4e102049a2de2445582b" identifier="image" label="Image" type="file"/>
+                <text default="-" field-id="6664b05a814f4e102049a2de804e4a14" identifier="video-type" label="Video Type" type="dropdown">
+                    <dropdown-item value="-"/>
+                    <dropdown-item show-fields="section/chunk/details/widescreen, section/chunk/details/url, section/chunk/details/title, section/chunk/details/caption, section/chunk/details/transcript" value="YouTube"/>
+                    <dropdown-item show-fields="section/chunk/details/widescreen, section/chunk/details/url, section/chunk/details/title, section/chunk/details/caption, section/chunk/details/transcript" value="Vimeo"/>
+                    <dropdown-item show-fields="section/chunk/details/widescreen, section/chunk/details/url, section/chunk/details/title, section/chunk/details/caption, section/chunk/details/transcript" value="Kaltura"/>
+                    <dropdown-item show-fields="section/chunk/details/thumbnail, section/chunk/details/mp4, section/chunk/details/webm, section/chunk/details/vtt, section/chunk/details/caption, section/chunk/details/transcript" value="HTML5"/>
+                </text>
+                <asset field-id="6664b05a814f4e102049a2de5497ff2a" identifier="thumbnail" label="Thumbnail" type="file"/>
+                <asset field-id="6664b05a814f4e102049a2de011bb599" identifier="mp4" label="mp4 - h.264" type="file"/>
+                <asset field-id="6664b05a814f4e102049a2de141da8ab" identifier="webm" label="webm" type="file"/>
+                <asset field-id="6664b05a814f4e102049a2de90f964a2" identifier="vtt" label="VTT file (closed captions)" type="file"/>
+                <text field-id="6664b05a814f4e102049a2de978c107e" identifier="widescreen" label="Widescreen?" type="checkbox">
+                    <checkbox-item value="Yes"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2de0546e670" identifier="url" label="URL" size="80"/>
+                <text default="-" field-id="6664b05a814f4e102049a2de9154261d" identifier="audio-type" label="Audio Type" type="dropdown">
+                    <dropdown-item value="-"/>
+                    <dropdown-item show-fields="section/chunk/details/mp3, section/chunk/details/transcript" value="HTML5"/>
+                </text>
+                <asset field-id="6664b05a814f4e102049a2de29d51b6c" identifier="mp3" label="mp3" type="file"/>
+                <text default="-" field-id="6664b05a814f4e102049a2de65e1361f" identifier="large-image-placement" label="Large Image Placement" type="dropdown">
+                    <dropdown-item value="-"/>
+                    <dropdown-item show-fields="section/chunk/details/horizontal-placement" value="Horizontal"/>
+                    <dropdown-item show-fields="section/chunk/details/vertical-placement" value="Vertical"/>
+                </text>
+                <text default="Top" field-id="6664b05a814f4e102049a2defd4dc9e5" identifier="horizontal-placement" label="Horizontal Image Placement" type="dropdown">
+                    <dropdown-item value="Top"/>
+                    <dropdown-item value="Bottom"/>
+                </text>
+                <text default="Left" field-id="6664b05a814f4e102049a2de2ecca085" identifier="vertical-placement" label="Vertical Image Placement" type="dropdown">
+                    <dropdown-item value="Left"/>
+                    <dropdown-item value="Right"/>
+                </text>
+                <asset field-id="6664b05a814f4e102049a2de1153bfac" identifier="essay-large-image" label="Large Image" type="file"/>
+                <asset field-id="6664b05a814f4e102049a2defd1b0773" identifier="essay-small-image-1" label="Small Image 1" type="file"/>
+                <asset field-id="6664b05a814f4e102049a2de6d57c288" identifier="essay-small-image-2" label="Small Image 2" type="file"/>
+                <text field-id="6664b05a814f4e102049a2de4f8ecd19" help-text="Use an appropriate title that is reflective of the video. Example: 'Fulfilling the Promise: Ailyn Perez'. The title is used as part of the embedded player. It is not visible on the page." identifier="title" label="Title" size="80"/>
+                <text field-id="6664b05a814f4e102049a2de51aa5984" identifier="caption" label="Caption" wysiwyg="true"/>
+                <text field-id="6664b05a814f4e102049a2de2b720dd8" identifier="attribution" label="Attribution" size="80"/>
+                <text field-id="6664b05a814f4e102049a2de52df5af8" help-text="A caption functions like a heading for a table." identifier="table-caption" label="Table Caption/Title" size="80"/>
+                <group identifier="table-header" label="Column Headers">
+                    <text field-id="6664b05a814f4e102049a2dea143434d" identifier="header-cell" label="Column Header" maximum-number="5" minimum-number="1" multiple="true" size="80"/>
+                </group>
+                <group identifier="table-body" label="Table Body">
+                    <group collapsed="true" identifier="table-row" label="Table Row" minimum-number="1" multiple="true">
+                        <group identifier="tcell" label="Table Cell" maximum-number="5" minimum-number="1" multiple="true">
+                            <text default="Standard" field-id="6664b05a814f4e102049a2de677ca165" identifier="type" label="Type" type="radiobutton">
+                                <radio-item show-fields="section/chunk/details/table-body/table-row/tcell/tcell-standard" value="Standard"/>
+                                <radio-item show-fields="section/chunk/details/table-body/table-row/tcell/tcell-advanced" value="Advanced"/>
+                            </text>
+                            <text field-id="6664b05a814f4e102049a2ded39cf0e6" identifier="tcell-standard" label="Content" size="80"/>
+                            <text field-id="6664b05a814f4e102049a2de99a631a2" help-text="Only accepts links, bold text, italicized text, ordered and unordered lists, break tags, and paragraphs" identifier="tcell-advanced" label="Content" wysiwyg="true"/>
+                        </group>
+                    </group>
+                </group>
+                <group identifier="slide" label="Slide" multiple="true">
+                    <asset field-id="6664b05a814f4e102049a2de24ef45a1" identifier="image" label="Image" required="true" type="file"/>
+                    <text field-id="6664b05a814f4e102049a2de6e1346cf" identifier="caption" label="Caption" wysiwyg="true"/>
+                    <text field-id="6664b05a814f4e102049a2de36f21438" identifier="attribution" label="Attribution" size="80"/>
+                </group>
+                <text field-id="6664b05a814f4e102049a2de3a4c286f" help-text="All framework pages should be structured in a hierarchical manner. Do not use text formatting, such as font size or bold to give the visual appearance of headings - use actual heading for all content headings." identifier="header-level-accordion" label="Header Level for each fold label" type="dropdown">
+                    <dropdown-item value=""/>
+                    <dropdown-item value="h2"/>
+                    <dropdown-item value="h3"/>
+                    <dropdown-item value="h4"/>
+                    <dropdown-item value="h5"/>
+                    <dropdown-item value="h6"/>
+                </text>
+                <group collapsed="true" identifier="fold" label="Fold" multiple="true">
+                    <text field-id="6664b05a814f4e102049a2de9b6b163c" identifier="label" label="Label" size="80"/>
+                    <text field-id="5eb22b16814f4e1017bd628aa6e43d6c" identifier="foldColor" label="Fold Color" type="dropdown">
+                        <dropdown-item label="Maroon" value="maroon"/>
+                        <dropdown-item label="Purple" value="purple"/>
+                        <dropdown-item label="Green" value="green"/>
+                        <dropdown-item label="Blue" value="blue"/>
+                        <dropdown-item label="Orange" value="orange"/>
+                    </text>
+                    <text field-id="6664b05a814f4e102049a2deb3a4fd84" identifier="content" label="Content" wysiwyg="true"/>
+                </group>
+                <group identifier="cta-link" label="Link" maximum-number="3" minimum-number="1" multiple="true">
+                    <text field-id="6664b05a814f4e102049a2dece39dc6e" identifier="link-label" label="Link Label" size="80"/>
+                    <asset field-id="6664b05a814f4e102049a2ded0b43eb0" identifier="link-internal" label="Internal Link" type="page,file,symlink"/>
+                    <text field-id="6664b05a814f4e102049a2de7fb577a8" identifier="link-external" label="External Link" size="80"/>
+                </group>
+                <text field-id="6664b05a814f4e102049a2de49a6a475" identifier="feed-type" label="Feed Type" type="dropdown">
+                    <dropdown-item value=""/>
+                    <dropdown-item show-fields="section/chunk/details/block, section/chunk/details/alpha-order, section/chunk/details/count-max" value="Profiles"/>
+                    <dropdown-item show-fields="section/chunk/details/block, section/chunk/details/count-max" value="News - Manual"/>
+                    <dropdown-item show-fields="section/chunk/details/id, section/chunk/details/count-max" value="News - IU Newsroom"/>
+                    <dropdown-item show-fields="section/chunk/details/block, section/chunk/details/count-max" value="Events - Manual"/>
+                    <dropdown-item show-fields="section/chunk/details/id, section/chunk/details/count-max" value="Events - IU Calendar"/>
+                    <dropdown-item show-fields="section/chunk/details/id, section/chunk/details/block, section/chunk/details/feed-name" value="Custom"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2de96dbdeaf" help-text="Used to determine what kind of custom feed this is. " identifier="feed-name" label="Feed Name" size="80"/>
+                <text field-id="6664b05a814f4e102049a2dec88f3dee" identifier="id" label="ID" size="80"/>
+                <asset field-id="6664b05a814f4e102049a2dec4b0647e" identifier="block" label="Block" render-content-depth="231" type="block"/>
+                <text field-id="6664b05a814f4e102049a2de9f80ed57" identifier="alpha-order" label="Alphabetical?" type="checkbox">
+                    <checkbox-item checked="true" value="Yes"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2de69556420" identifier="count-max" label="Maximum number of items" size="80"/>
+                <text default="Standard" field-id="6664b05a814f4e102049a2dee626bc2c" identifier="mode" label="Mode" type="dropdown">
+                    <dropdown-item value="Standard"/>
+                    <dropdown-item value="Summary"/>
+                    <dropdown-item value="Ticker"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2dec31232e7" identifier="social-type" label="Type" type="dropdown">
+                    <dropdown-item show-fields="section/chunk/details/social-url" value="Facebook Widget"/>
+                    <dropdown-item show-fields="section/chunk/details/social-url" value="Twitter Widget"/>
+                    <dropdown-item show-fields="section/chunk/details/social-url, section/chunk/details/disable-caption" value="Instagram Widget - Single Image"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2de19adb602" identifier="social-url" label="URL" size="80"/>
+                <text field-id="6664b05a814f4e102049a2de6d95cb39" identifier="disable-caption" label="Disable Caption?" type="checkbox">
+                    <checkbox-item value="Yes"/>
+                </text>
+                <text field-id="6664b05a814f4e102049a2de03c5eb9d" identifier="link-label" label="Link Label" size="80"/>
+                <asset field-id="6664b05a814f4e102049a2de81ab60e4" identifier="link-internal" label="Internal Link" type="page,file,symlink"/>
+                <text field-id="6664b05a814f4e102049a2deed506a90" identifier="link-external" label="External Link" size="80"/>
+                <text default="HTML" field-id="6664b05a814f4e102049a2de3ea4a7c7" identifier="snippet-type" label="Snippet Type" type="dropdown">
+                    <dropdown-item value="HTML"/>
+                    <dropdown-item value="JavaScript"/>
+                    <dropdown-item value="PHP"/>
+                </text>
+                <text cols="80" field-id="6664b05a814f4e102049a2de21e7fce5" identifier="code" label="Code" multi-line="true" rows="3"/>
+                <text field-id="6664b05a814f4e102049a2de2ca2e626" identifier="transcript" label="Transcript" wysiwyg="true"/>
+            </group>
+        </group>
+    </group>
+</system-data-structure>

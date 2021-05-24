@@ -1,0 +1,34 @@
+## Page variables used: $chunk
+#macro(HorizontalAccordion)
+
+    #set($folds = $_XPathTool.selectNodes($chunk, ".//fold"))
+
+    #if($folds.size() > 0)
+    <div class="horizontal-accordion">
+        #foreach($fold in $folds)
+            #set($label = $_XPathTool.selectSingleNode($fold, "label").value)
+            #set($foldColor = $_XPathTool.selectSingleNode($fold, "foldColor").value)
+            #set($content = $_SerializerTool.serialize($fold.getChild("content"), true))
+
+            #if($label!="" &&  $content != "")
+                <div class="horizontal-accordion-fold $!foldColor">
+                    <button class="horizontal-accordion-fold--button button--$!foldColor">
+                        <span>
+                            $!label
+                        </span>
+                    </button>
+                    <section class="horizontal-accordion-fold--content">
+                        $!content
+                    </section>
+                </div>
+            #else
+                #error("The accordion chunk requires a fold with a label and content.")
+            #end
+        #end
+    </div>
+    #else
+        ## no folds
+        #error("There are no folds in this accordion. Please add folds in order to see the accordion.")
+    #end
+
+#end

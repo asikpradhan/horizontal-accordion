@@ -1,0 +1,68 @@
+#macro(HorizontalAccordion $block)
+<!--
+    The following two lines parse your custom section's XML into a
+    `$___Block` object you can use to access Data Definition field
+    values using dot (.) notation (see below).
+    -->
+    #import("site://IU-FRAME-WEBS.common/velocity/1.x/Parser")
+    #set($nil = "#___ParseBlock($block.path, $block.siteName)")
+    #set($folds = $___Block.fold)
+<!--
+    Your custom section macro inherits the `$sectionClasses` and
+    `$sectionID` variables that contain the CSS classes and in-page
+    navigation ID specified by the page's builder in Section > Details.
+    -->
+<div class="section">
+    <div class="row">
+        #if($folds.size() > 0)
+            <div class="horizontal-accordion">
+                #foreach($fold in $folds)
+                    #set($label = $fold.label[0])
+                    #set($foldColor = $fold.foldColor[0])
+                    #set($content = $fold.content[0])
+                    <div class="horizontal-accordion-fold $!{foldColor}">
+                        <button class="horizontal-accordion-fold--button button--$!{foldColor}">
+                        <span>
+                            $!label
+                        </span>
+                        </button>
+                        <section class="horizontal-accordion-fold--content">
+                            $!content
+                        </section>
+                    </div>
+                #end
+            </div>
+        #else
+            ## no folds
+            #error("There are no folds in this accordion. Please add folds in order to see the accordion.")
+        #end
+
+    </div>
+</div>
+
+<!--
+Links to your custom section's CSS files go here, if you have any.
+
+You can reference CSS files using either absolute or relative paths.
+-->
+<include action="hide" name="custom-css">
+    <link rel="stylesheet" href="/_assets/css/horizontal-accordion.css"/>
+</include>
+
+<!--
+Links to your custom section's JS files go here, if you have any.
+
+You can reference JS files using either absolute or relative paths.
+-->
+<include action="hide" name="custom-js">
+    <script src="/_assets/js/horizontal-accordion.js"></script>
+</include>
+#end
+
+## You can use the code below to test your custom section's
+## Velocity format in Cascade Server's Velocity format editor.
+## Be sure to comment this code out or remove it before publishing
+## any pages that contain your custom section.
+
+##set($block = $_.locateBlock('/blocks/lorem-ipsum','IU-STUDIO-WEBS.asiktst'))
+##HorizontalAccordion($block)

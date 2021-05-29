@@ -133,6 +133,7 @@
     .active .horizontal-accordion-fold--content {
         padding: 1rem;
         max-width: 50rem;
+        max-height: 18rem;
     }
 
     .horizontal-accordion-fold--button {

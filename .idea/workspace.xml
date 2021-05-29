@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ecbdd95-0519-47cb-b0c4-3a3f8bed6d3b" name="Default Changelist" comment="feat: accessible colors">
-      <change afterPath="$PROJECT_DIR$/Banner.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Horizontal-custom.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Horizontal.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asik.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iidc.xml" afterDir="false" />
+    <list default="true" id="3ecbdd95-0519-47cb-b0c4-3a3f8bed6d3b" name="Default Changelist" comment="feat: tall accordion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/horizontal-accordion.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/horizontal-accordion.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
     </list>
@@ -78,7 +74,8 @@
       <workItem from="1620888177070" duration="5481000" />
       <workItem from="1620971649516" duration="7113000" />
       <workItem from="1621433737994" duration="4571000" />
-      <workItem from="1621845077483" duration="1532000" />
+      <workItem from="1621845077483" duration="1585000" />
+      <workItem from="1622287766149" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="chore: update text">
       <created>1620734710623</created>
@@ -115,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621507738037</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: tall accordion">
+      <created>1621856784128</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621856784128</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +141,7 @@
     <MESSAGE value="chore: update text" />
     <MESSAGE value="feat: changes for es5" />
     <MESSAGE value="feat: accessible colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: accessible colors" />
+    <MESSAGE value="feat: tall accordion" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: tall accordion" />
   </component>
 </project>

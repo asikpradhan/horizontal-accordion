@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3ecbdd95-0519-47cb-b0c4-3a3f8bed6d3b" name="Default Changelist" comment="feat: tall accordion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/horizontal-accordion.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/horizontal-accordion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/horizontal-accordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/horizontal-accordion.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,16 @@
       <workItem from="1620971649516" duration="7113000" />
       <workItem from="1621433737994" duration="4571000" />
       <workItem from="1621845077483" duration="1585000" />
-      <workItem from="1622287766149" duration="1016000" />
+      <workItem from="1622287766149" duration="1407000" />
+      <workItem from="1623821204866" duration="1064000" />
+      <workItem from="1624022509748" duration="469000" />
+      <workItem from="1624240563348" duration="5000" />
+      <workItem from="1624800537987" duration="1325000" />
+      <workItem from="1625572403447" duration="549000" />
+      <workItem from="1628683071258" duration="1238000" />
+      <workItem from="1629723040046" duration="916000" />
+      <workItem from="1630295477683" duration="763000" />
+      <workItem from="1630297450937" duration="484000" />
     </task>
     <task id="LOCAL-00001" summary="chore: update text">
       <created>1620734710623</created>
@@ -119,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621856784128</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: tall accordion">
+      <created>1622296939712</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622296939712</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

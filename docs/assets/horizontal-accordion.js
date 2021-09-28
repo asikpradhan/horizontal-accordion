@@ -3,7 +3,12 @@
  *
  */
 'use strict';
+const test = (a) => {
+    return Math.random();
+}
 
+console.log(test(12));
+console.log(test(14));
 function inactivateFold(fold) {
     fold.classList.remove("active");
     fold.querySelectorAll(":scope > .horizontal-accordion-fold--content").forEach(function (item) {
@@ -59,7 +64,7 @@ var accordionButtons = document.getElementsByClassName("horizontal-accordion-fol
 Array.from(accordionButtons).forEach(function (accordionButton) {
     addFoldClickEvent(accordionButton);
 });
-Array.from(accordions).forEach(function(accordion) {
+Array.from(accordions).forEach(function (accordion) {
     Array.from(accordion.children).forEach(function (fold, index) {
         if (index !== 0) {
             inactivateFold(fold);
